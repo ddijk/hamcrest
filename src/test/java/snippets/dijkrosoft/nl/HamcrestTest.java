@@ -1,6 +1,8 @@
 package snippets.dijkrosoft.nl;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.anyOf;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.everyItem;
@@ -28,6 +30,8 @@ public class HamcrestTest {
         assertThat(persons, hasKey("Jens") );
         assertThat(persons, not(hasKey("Dick")) );
 
+        assertThat(persons, allOf(hasKey("Jens"), hasKey("Lieve")));
+        assertThat(persons, anyOf(hasKey("Jaap"),hasKey("Jens"), hasKey("Jeff")));
     }
 
     @Test
